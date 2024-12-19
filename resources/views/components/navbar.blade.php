@@ -16,43 +16,56 @@
 
 
         @guest
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           Ben venuto ospite
-          </a>
-          <ul class="dropdown-menu">
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('register')}}">Registrati</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('login')}}">Accedi</a>
-            </li>
-          </ul>
-        </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Ben venuto ospite
+            </a>
+            <ul class="dropdown-menu">
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('register')}}">Registrati</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('login')}}">Accedi</a>
+              </li>
+            </ul>
+          </li>
         @endguest
       
 
         @Auth
 
-        <li class="nav-item">
-          <a href="{{route('article.create')}}">Inserire articolo</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Ben venuto {{Auth::user()->name}}
-          </a>
-          <ul class="dropdown-menu">
-            <form action="{{route('logout')}}" method="POST">
-              @csrf
-              <button type="submit" class="dropdown-item">Logout</button>
-            </form>
+          <li class="nav-item">
+            <a href="{{route('article.create')}}" class="nav-link">Inserire articolo</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Ben venuto {{Auth::user()->name}}
+            </a>
+            <ul class="dropdown-menu">
+              <form action="{{route('logout')}}" method="POST">
+                @csrf
+                <button type="submit" class="dropdown-item">Logout</button>
+              </form>
 
-          </ul>
-        </li>  
-        @endauth   
+            </ul>
+          </li>  
+          
+          <li class="nav-item">
+            <a href="{{route('careers')}}" class="nav-link">Lavora con noi</a>
+          </li>
 
-
-     </ul>
+        
+          <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{route('article.index')}}">Tutti gli articoli</a>
+          </li>
+       
+          @if (Auth::user()->is_admin)
+                <li>
+                  <a class="dropdown-item" href="{{route('admin.dashboard')}}">Dashboard Admin</a>
+                </li>
+          @endif
+        </ul>
+         @endauth  
     </div>
   </div>
 </nav>

@@ -1,11 +1,15 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
+use App\Models\User;
 
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller; 
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Routing\Controllers\HasMiddleware;
 
@@ -15,6 +19,7 @@ class ArticleController extends Controller
     public static function middleware()
 
     {
+
         return[ new Middleware('auth',except:['index','show']),];
     }
 
@@ -25,6 +30,8 @@ class ArticleController extends Controller
     public function index()
     {
         //
+        $articles = Article::orderBy('created_at','desc')->get();
+        return view('article.index', compact('articles'));
     }
 
     /**
@@ -32,6 +39,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
+
         return view('article.create');
     }
 
@@ -70,6 +78,7 @@ class ArticleController extends Controller
     public function show(Article $article)
     {
         //
+        return view('article.show',compact('article'));
     }
 
     /**
@@ -94,5 +103,16 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         //
+    }
+
+    public function byCategory(Category $category)
+    {
+        $articles = $category->articles()->orderBy('created_at', 'desc')->get();
+        return view('article.by-category', compact('category', 'articles'));
+    }
+    public function byRedactor(User $user)
+    {
+        $redactors = $user->articles()->orderBy('created_at', 'desc')->get();
+        return view('article.by-redactor', compact('user', 'articles'));
     }
 }

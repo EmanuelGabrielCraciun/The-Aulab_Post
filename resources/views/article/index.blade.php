@@ -1,23 +1,12 @@
 <x-layout>
-    <div class="container-fluid p-5 bg-secondary-subtle text-center">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <h1 class="display-1">The Aulab Post</h1>
-            </div>
+<div class="container-fluid p-5 bg-secondary-subtle text-center">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <h1 class="display-1">Tutti gli articoli</h1>
         </div>
     </div>
-    @if (session('message'))
-        <div class="alert alert-success">
-            {{ session('message') }}
-        </div>
-    @endif
-    
-    @if(session('allert'))
-        <div class="aller allert-danger">
-            {{session('allert')}}
-        </div>
-    @endif
-    <div class="container my-5">
+</div>
+<div class="container my-5">
         <div class="row justify-content-evenly">
             @foreach ($articles as $article)
                 <div class="col-12 col-md-3">
@@ -28,7 +17,7 @@
                             <h5 class="card-title"> {{$article->title}}</h5>
                             <p class="card-subtitle"> {{$article->subtitle}}</p>
                             <p class="text-muted">Categoria:
-                                <a href="c" class="text-capittalize text-muted">{{$article->category->name}}</a>
+                                <a href="{{route('article.byCategory', $article->category)}}" class="text-capittalize text-muted">{{$article->category->name}}</a>
                             </p>
                         </div>
                         <div class="card-footer d-flex justify-content-between align-items-center">
@@ -42,7 +31,4 @@
             @endforeach
         </div>
 
-
-
-    </div>
 </x-layout>

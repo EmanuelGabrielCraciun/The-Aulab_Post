@@ -11,20 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('articles', function (Blueprint $table) {
-            $table->id();
-            
-            $table->string('title');
-            $table->string('subtitle');
-            $table->longtext('body');
-            $table->string('image');
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->reference('id')->on('users')->onDelete('SET_NULL');
-            $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('SET NULL');
-            $table->timestamps();
-    });
-
+        if (!Schema::hasTable('articles')) {
+            Schema::create('articles', function (Blueprint $table) {
+                $table->id();
+                $table->string('title');
+                $table->string('subtitle');
+                $table->longText('body');
+                $table->string('image');
+                $table->unsignedBigInteger('user_id')->nullable();
+                $table->unsignedBigInteger('category_id')->nullable();
+                $table->timestamps();
+            });
+        }
     }
 
     /**
