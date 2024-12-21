@@ -59,13 +59,20 @@
                 <a class="nav-link active" aria-current="page" href="{{route('article.index')}}">Tutti gli articoli</a>
           </li>
        
-          @if (Auth::user()->is_admin)
+            @if (Auth::user()->is_admin)
                 <li>
                   <a class="dropdown-item" href="{{route('admin.dashboard')}}">Dashboard Admin</a>
                 </li>
-          @endif
+            @endif
+
+           @if (Auth::user()->is_revisor)
+            <li>
+              <a href="{{route('revisor.dashboard')}}" class="dropdown-item">Dashboard revisore</a>
+              </li>         
+           @endif
         </ul>
-         @endauth  
+         @endauth 
+
     </div>
   </div>
 </nav>

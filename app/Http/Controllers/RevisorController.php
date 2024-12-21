@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class RevisorController extends Controller
 {
-    public function dashoboard(){
+    public function dashboard(){
         $unrevisionedArticles = Article::where('is_accepted', NULL)->get();
         $acceptedArticles = Article::where('is_accepted', true)->get();
         $rejectedArticles = Article::where('is_accepted', false)->get();
@@ -17,18 +17,18 @@ class RevisorController extends Controller
     public function acceptArticle(article $article){
         $article->is_accepted = true;
         $article->save();
-        return redirect(route('revsor.dashboard'))->with('message','articolo publciato');
+        return redirect(route('revisor.dashboard'))->with('message','articolo publciato');
 
     }
     public function rejectArticle(article $article){
         $article->is_accepted = false;
         $article->save();
-        return redirect(route('revsor.dashboard'))->with('message','articolo rifiutato');
+        return redirect(route('revisor.dashboard'))->with('message','articolo rifiutato');
     //
 }
 public function undoArticle(article $article){
     $article->is_accepted = NULL;
     $article->save();
-    return redirect(route('revsor.dashboard'))->with('message','articolo rimandato in revisione');
+    return redirect(route('revisor.dashboard'))->with('message','articolo rimandato in revisione');
 }
 }
