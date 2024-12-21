@@ -20,7 +20,8 @@ class ArticleController extends Controller
 
     {
 
-        return[ new Middleware('auth',except:['index','show']),];
+        return[ new Middleware('auth',except:['index','show','byCategory','byUser', 'articleSearch']) ];
+    
     }
 
 
@@ -114,5 +115,10 @@ class ArticleController extends Controller
     {
         $redactors = $user->articles()->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
         return view('article.by-redactor', compact('user', 'articles'));
+    }
+    public function articleSearch(Request $request){
+        $query = $request->input('query');
+        $articles = Article::search($query)->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
+        return view('article.search-index', compact('articles','query'));
     }
 }

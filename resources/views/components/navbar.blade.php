@@ -73,6 +73,11 @@
         </ul>
          @endauth 
 
+         <form action="{{route('article.search')}}" method="GET" class="d-flex" role="search">
+            <input type="search" name="query" placeholder="Cerca tra gli articoli" class="form-control me-2" aria-label="Search">
+            <button class="btn btn-outline-secondary" type="submit">cerca</button>
+         </form>
+
     </div>
   </div>
 </nav>
