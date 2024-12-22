@@ -37,6 +37,11 @@
                             </p>
                             <a href="{{route('article.show', $article)}}" class="btn-outline-secondary">Leggi Articolo</a>
                         </div>
+                        <p class="small text-muted my-0">
+                            @foreach ($article->tags as $tag)
+                                #{{$tag->name}}
+                            @endforeach
+                        </p>
                     </div>
                 </div>
             @endforeach

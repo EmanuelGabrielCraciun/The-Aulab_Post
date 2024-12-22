@@ -27,6 +27,11 @@
                             da <a href="{{route('article.byUser',$article->user)}}" class="text-muted">{{$article->user->name}}</a>
                         </p>
                             <a href="{{route('article.byUser',$article->user) }}" class="btn btn-outline-secondary">Leggi</a>
+                            <p class="small text-muted my-0">
+                            @foreach ($article->tags as $tag)
+                                #{{$tag->name}}
+                            @endforeach
+                        </p>
                         </div>
                     </div>
                 </div>          

@@ -12,10 +12,10 @@
     <tbody>
         @foreach ($articles as $article)
         <tr>
-            <th scope="row">{{$articles->id}}</th>
-            <td>{{$articles->title}}</td>
-            <td>{{$articles->subtitle}}</td>
-            <td>{{$articles->user->name}}</td>
+            <th scope="row">{{$article->id}}</th>
+            <td>{{$article->title}}</td>
+            <td>{{$article->subtitle}}</td>
+            <td>{{$article->user->name}}</td>
             <td>
                 @if (is_null($article->is_accepted))
                     <a href="{{route('article.show',$article)}}" class="btn btn-secondary">Leggi l'articolo</a>

@@ -18,7 +18,7 @@ Route::post('article/store', [ArticleController::class, 'store'])->name('article
 Route::get('article/index', [ArticleController::class, 'index'])->name('article.index');
 Route::get('article/show/{article}', [ArticleController::class, 'show'])->name('article.show');
 route::get('article/category/{category}', [ArticleController::class, 'byCategory'])->name('article.byCategory');
-// Route::get('article/redattore/{user}', [ArticleController::class, 'byRedactor'])->name('article.byRedactor');
+Route::get('article/redattore/{user}', [ArticleController::class, 'byUser'])->name('article.byUser');
 
 
 
@@ -32,7 +32,11 @@ Route::middleware('admin')->group(function(){
     route::patch('admin/{user}/set-admin',[AdminController::class, 'setAdmin'])->name('admin.setAdmin');
     route::patch('admin/{user}/set-revisor',[AdminController::class, 'setRevisor'])->name('admin.setRevisor');
     route::patch('admin/{user}/set-writer',[AdminController::class, 'setWriter'])->name('admin.setWriter');
-
+    route::put('admin/edit/tag/{tag}',[AdminController::class,'editTag'])->name('admin.editTag');
+    route::delete('admin/delete/tag/{tag}',[AdminController::class,'deleteTag'])->name('admin.deleteTag');
+    route::put('admin/edit/category/{category}',[AdminController::class,'editCategory'])->name('admin.editCategory');
+    route::delete('admin/delete/category/{category}',[AdminController::class,'deleteCategory'])->name('admin.deleteCategory');
+    route::post('admin/category/store',[AdminController::class,'storeCategory'])->name('admin.storeCategory');
 });
 
 // revisor

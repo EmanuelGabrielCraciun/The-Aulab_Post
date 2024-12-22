@@ -38,7 +38,15 @@
                 <span class="text-danger">{{$message}}</span>
                 @enderror
                 </div>
-
+                
+                <div class="mb-3">
+                    <lable for="tags" class="form-lable">Tags</lable>
+                    <input type="text" class="form-control" name="tags" id="tags" Value="{{old('tags')}}"></input>
+                    <span class="small text-muted">Dividi i tag con una virgola</span>
+                    @error('tags')
+                        <span class="text-danger">{{$message}}</span>
+                    @enderror
+                </div>
               
                     <div class="mb-3 d-flex justify-content-center flex-column align-items-center">
                     <label for="body" class="form-lable">Corpo del testo</label>
@@ -61,6 +69,7 @@
                     <button type="submit" class=btn-outline-secondary">inserisci articolo</button>
                     <a href="{{route('welcome')}}" class="text-secondary mt-2">Torna alla home</a>
                 </div>
+              
 
             </form>
         </div>
