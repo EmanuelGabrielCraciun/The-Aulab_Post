@@ -131,10 +131,11 @@ class ArticleController extends Controller
             'subtitle'=> $request->subtitle,
             'body'=> $request->body,
             'category_id'=> $request->category,
+            'is_accepted'=>null,
         ]);
 
         if ($request->hasFile('image')) {
-            Storage::delete($article->image); // Delete the old image
+            Storage::delete($article->image);
             $article->update([
                 'image' => $request->file('image')->store('images', 'public') // Store the new image
             ]);
@@ -155,6 +156,7 @@ class ArticleController extends Controller
             $newTags[]=$newTag->id;
         }
         $article->tags()->sync($newTags);
+        
         return redirect()->route('writer.Dashboard')->with('message','Articolo modificato');
     }
     /**
