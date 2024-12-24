@@ -10,26 +10,8 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href='/'>Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
 
-
-        @guest
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Ben venuto ospite
-            </a>
-            <ul class="dropdown-menu">
-              <li class="nav-item">
-                <a class="nav-link" href="{{route('register')}}">Registrati</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{route('login')}}">Accedi</a>
-              </li>
-            </ul>
-          </li>
-        @endguest
+     
       
 
         @Auth
@@ -51,7 +33,7 @@
           </li>  
           
           <li class="nav-item">
-            <a href="{{route('careers')}}" class="nav-link">Lavora con noi</a>
+            <a href="{{route('careers')}}" class="nav-link active">Lavora con noi</a>
           </li>
 
         
@@ -61,14 +43,19 @@
        
             @if (Auth::user()->is_admin)
                 <li>
-                  <a class="dropdown-item" href="{{route('admin.dashboard')}}">Dashboard Admin</a>
+                  <a class="nav-link active" href="{{route('admin.dashboard')}}">Dashboard Admin</a>
                 </li>
             @endif
 
            @if (Auth::user()->is_revisor)
             <li>
-              <a href="{{route('revisor.dashboard')}}" class="dropdown-item">Dashboard revisore</a>
+              <a href="{{route('revisor.dashboard')}}" class="nav-link active">Dashboard revisore</a>
               </li>         
+           @endif
+           @if (Auth::user()->is_writer)
+            <li>
+              <a href="{{route('writer.Dashboard')}}" class="nav-link active">Dashboard redattore</a>
+            </li>
            @endif
         </ul>
          @endauth 
@@ -79,5 +66,20 @@
          </form>
 
     </div>
-  </div>
+  </div>  
+   @guest
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Ben venuto ospite
+            </a>
+            <ul class="dropdown-menu">
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('register')}}">Registrati</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('login')}}">Accedi</a>
+              </li>
+            </ul>
+          </li>
+    @endguest
 </nav>
