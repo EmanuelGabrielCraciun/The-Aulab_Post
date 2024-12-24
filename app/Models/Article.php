@@ -10,8 +10,12 @@ use Laravel\Scout\Searchable;
 class Article extends Model
 {
 use HasFactory, Searchable;
-protected $fillable = ['title', 'subtitle', 'body', 'image','user_id','category_id','is_accepted'
+protected $fillable = ['title', 'subtitle', 'body', 'image','user_id','category_id','is_accepted','slug'
 ];
+public function getRouteKeyName()
+{
+    return 'slug'; 
+}
 
 public function user(){
 
@@ -36,4 +40,6 @@ public function toSearchableArray(){
 public function tags(){
     return $this->belongsToMany(Tag::class);
 }
+
+
 }
