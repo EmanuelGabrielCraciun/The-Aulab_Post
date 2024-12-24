@@ -28,13 +28,14 @@
                 <td>{{$article->created_at->format('d/m/Y')}}</td>
                 <td>
                     <a href="{{route('article.show',$article)}}" class="btn btn-secondary">Visualizza</a>
-                    <a href="" class="btn btn-warning">Modifica</a>
-                    <form action="submit" class="btn btn-warning">
-                        <button class="btn btn-warning" type="submit">Elimina</button>
+                    <a href="{{route('article.edit', $article)}}" class="btn btn-warning">Modifica</a>
+                    <form action="{{route('article.destroy', $article)}}" method="POST" class="btn btn-warning">
+                        @csrf    
+                        @method('DELETE')
+                        <button class="btn btn-warning" type="submit">Elimina</but>
                     </form>
                 </td>
             </tr>
-            <a href="{{route('article.edit', $article)}} class="btn btn-warning">Modifica</a>
         @endforeach
         </tbody>
     </table>

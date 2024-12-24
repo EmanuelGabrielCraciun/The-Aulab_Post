@@ -1,16 +1,17 @@
 <x-layout>
     <div class="container-fluid p-5 bg-secondary textcenter">
         <div class="row justify-content-center">
-            <dic class="col-12">
+            <div class="col-12">
                <h1 class="display-1">Sezione modifica articolo</h1>
-            </dic>
+            </div>
         </div>
     </div>
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12 col-md8">
-                <form action="" method="" class="card p-5 shadow" enctype="multipart/form-data">
-                    
+                <form action="{{route('article.update',$article)}}" method="POST" class="card p-5 shadow" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
                     <div class="mb-3">
                         <label for="title" class="form-label">cambia titolo</label>
                         <input type="text" name="title" id="title" value="{{$article->title}}" class="form-control">
@@ -29,7 +30,7 @@
 
                     <div class="mb-3">
                         <label>Immagine attuale</label>
-                        <img src="{{Storage::url($article->image)}}" alt="{{$article->title}}" class="w-50 d-felx">
+                        <img src="{{Storage::url($article->image)}}" alt="{{$article->title}}" class="w-50 d-flex">
                     </div>
                          
                     <div class="mb-3">
@@ -41,12 +42,13 @@
                     </div>
 
                     <label for="category" class="form-label">categoria</label>
-                        <select name="" id="" class="form-control">
-                            <option value=""></option>
+                        <select name="category" id="category" class="form-control">
                             @foreach ($categories as $category)     
-                                <option value="{{$category->id}}" @if($article->category->id) selected @endif>{{$category->name}}</option>                          
+                            <option value="{{$category->id}}" @if($article->category->id == $category->id) selected @endif>
+                                {{$category->name}}
+                            </option>                        
                             @endforeach
-                        </select>
+                        </selected>
                         @error('category')
                             <span class="text danger">{{$message}}</span>
                         @enderror
@@ -64,7 +66,7 @@
                     <div>
                         <label for="body" class="form-label">Cambia testo</label>
                         <textarea name="body" id="body" class="form-control" cols="30" rows="7">{{$article->body}}</textarea>
-                        @error('image')
+                        @error('body')
                             <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>

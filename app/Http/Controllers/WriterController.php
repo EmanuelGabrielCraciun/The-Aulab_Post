@@ -16,10 +16,6 @@ class WriterController extends Controller
     return view('writer.dashboard', compact('rejectedArticles','acceptedArticles','unrevisonedArticles'));
     //
     }
-    public function edit(Article $article){
-        if(Auth::user()->id == $article->user_id){
-            return view('article.edit', compact('articles'));
-    }
-    return redirect()->route('welcome')->with('alert','Non puo entrare ');
-    }
+   
+
 }
