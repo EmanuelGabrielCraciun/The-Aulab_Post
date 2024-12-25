@@ -2,7 +2,7 @@
 <div class="my-5 container-fluid p-5 text-center">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1>Registrati</h1>
+            <h1>Inserisci articolo</h1>
         </div>
     </div>
 </div>

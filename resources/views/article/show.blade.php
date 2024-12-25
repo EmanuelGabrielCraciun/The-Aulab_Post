@@ -11,7 +11,7 @@
 
 <div class="container my-5">
     <div class="row justify-content-center">
-        <div class="col-12 col-md-8 d-flex flex column">
+        <div class="col-12 col-md-6 d-flex flex-column">
 
             <img src="{{Storage::url($article->image) }}" class="img-fluid" alt="Immagine del articolo:{{$article->title}}">
             <div class="text-center">

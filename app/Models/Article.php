@@ -3,9 +3,10 @@
 namespace App\Models;
 
 use App\Models\Category;
+use Illuminate\Support\Str;
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Laravel\Scout\Searchable;
 
 class Article extends Model
 {
@@ -41,5 +42,10 @@ public function tags(){
     return $this->belongsToMany(Tag::class);
 }
 
+public function readDuration(){
+$totlaWords = Str::wordCount($this->body);
+$minuteToRead = round($totlaWords /150);
+return intval($minuteToRead);
+}
 
 }
