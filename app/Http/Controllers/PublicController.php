@@ -55,16 +55,16 @@ class PublicController extends Controller
                     $user->is_admin = NULL;
                     break;
 
-                    case 'revisor':
-                        $user->is_revisor = NULL;
-                        break;
+                case 'revisor':
+                    $user->is_revisor = NULL;
+                    break;
 
-                        case 'writer':
-                            $user->is_writer = NULL;
-                            break;
+                case 'writer':
+                    $user->is_writer = NULL;
+                    break;
             }
             $user->update();
-            return redirect (route('welcome'))->with('message', 'Mail inviata con successo XD');
+            return redirect (route('welcome'))->with('message', 'Richiest inviata con successo!');
          }
 
          

@@ -1,8 +1,8 @@
 <x-layout>
-<div class="my-5 container-fluid p-5 text-center">
+<div class="my-5 bg-secondary-subtle container-fluid p-5 mt-0 text-center">
     <div class="row justify-content-center">
-        <div class="col-md-5">
-            <h1>Registrati</h1>
+        <div class="col-md-6 col-12 bg-blur">
+            <h1 class="display-1">Registrati</h1>
         </div>
     </div>
 </div>
@@ -41,7 +41,7 @@
                     <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" value="{{old('password')}}">
                 </div>
                 <div class="mb-3 d-flex justify-content-end flex-column align-items-center">
-                    <button type="submit" class=btn-outline-secondary">Registrati</button>
+                    <button type="submit" class="btn btn-outline-secondary">Registrati</button>
                     <p class="mt-2">Sei gia registrato? <a href="{{route('login')}}" class="text-secondary">Clicca qui</a></p>
                 </div>
 

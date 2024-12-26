@@ -1,8 +1,8 @@
 <x-layout>
-   <div class="container-fluid p-5 bg-secondary text-center">
+   <div class="container-fluid p-5 bg-secondary-subtle text-center">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-8">
-                <h1 class+"display-1">Accedi</h1>
+            <div class="col-12 col-md-6 bg-blur">
+                <h1 class="display-1">Accedi</h1>
             </div>
         </div>
    </div>
@@ -29,7 +29,7 @@
                             @enderror 
                         </div>
                         <div class="mb-3 d-flex justify-content-center flex-column align-items-center">
-                            <button type="submit" class="btn ntn-outline-secondary">Accedi</button>
+                            <button type="submit" class="btn btn-outline-secondary">Accedi</button>
                             <p class="mt-2">Non sei registrato? <a href="{{route('register')}}" class="text-secondary">Clicca qui</a></p>
                         </div>
                 </form>

@@ -1,5 +1,5 @@
-
-    <table class="table table-striped">
+<div class=" container-fluid border-bottom border-black">
+    <table class="table table-striped table-hover">
         <thead class="table-dark">
             <tr>
                 <th scope="col">#</th>
@@ -38,3 +38,4 @@
         @endforeach
         </tbody>
     </table>
+</div>

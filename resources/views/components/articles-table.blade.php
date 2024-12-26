@@ -1,5 +1,5 @@
 
-   <table class="table table-stripped table-hoover">
+   <table class="table table-stripped table-hover">
     <thead class="table-dark">
         <tr>
             <th scope="col">#</th>

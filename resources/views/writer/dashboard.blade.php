@@ -1,8 +1,9 @@
 
 <x-layout>
-    <div class="container-fluid p-5 bg-secondary textcenter">
+
+    <div class="container-fluid p-5 bg-secondary border border-bottom border-black text-center">
         <div class="row justify-content-center">
-            <div class="col-12">
+            <div class="col-6 bg-blur">
                 <h1 class="display-1">Ben tornato {{Auth::user()->name}}</h1>
             </div>
         </div>
@@ -32,4 +33,5 @@
             </div>
         </div>
     </div>
+
 </x-layout>

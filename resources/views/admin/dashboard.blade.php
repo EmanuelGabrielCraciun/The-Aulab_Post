@@ -2,7 +2,7 @@
 
     <div class="container-fluid p-5 bg-primary text-center">
         <div class="row justify-content-center">
-            <div class="col-12">
+            <div class="col-6 bg-blur ">
                 <h1 class="display-1">
                     Welcome {{Auth::user()->name}}
                 </h1>
