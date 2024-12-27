@@ -7,7 +7,7 @@
                  <a href="{{route('article.byCategory', $article->category)}}" class="text-capittalize text-muted">{{$article->category->name}}</a>
                  </p>
             </div>
-            <div class="card-footer btn-group d-flex ms-0 justify-content-between align-items-center flex-fill footer">
+            <div class="card-footer btn-group d-flex ms-0 justify-content-between align-items-center flex-fill footer_card">
                 <a href="{{route('article.byUser', $article->user)}}" class="btn btn-warning btn-outline-secondary">
                     Redattore: {{$article->user->name}}
                 </a>

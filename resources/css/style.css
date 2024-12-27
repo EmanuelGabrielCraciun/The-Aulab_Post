@@ -1,4 +1,4 @@
-.footer {
+.footer_card {
 
     justify-content: start !important;
     max-height: 100px !important;
@@ -11,3 +11,10 @@
     border-radius: 10px; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
+
+.footer {
+    background-color: #a1a1a1;
+    color: white;
+    height: 100px;
+}
+
