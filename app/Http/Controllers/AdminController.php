@@ -11,7 +11,7 @@ use SebastianBergmann\CodeUnit\FunctionUnit;
 class AdminController extends Controller
 {
     public function dashboard(){
-        $adminRequest=User::where ('is_admin',0)->get();
+        $adminRequest=User::where ('is_admin',NULL)->get();
         $revisorRequest=User::where ('is_revisor',NULL)->get();
         $writerRequest=User::where ('is_writer',NULL)->get();
         return view('admin.dashboard',compact('adminRequest', 'revisorRequest', 'writerRequest'));

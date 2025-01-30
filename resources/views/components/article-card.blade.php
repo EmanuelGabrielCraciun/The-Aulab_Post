@@ -2,10 +2,16 @@
         <img src="{{Storage::url($article->image) }}" class="card-img-top" alt="Immagine del articolo: {{$article->title}}">                           
             <div class="card-body">
                 <h5 class="card-title"> {{$article->title}}</h5>
-                 <p class="card-subtitle"> {{$article->subtitle}}</p>
-                 <p class="text-muted">Categoria:
-                 <a href="{{route('article.byCategory', $article->category)}}" class="text-capittalize text-muted">{{$article->category->name}}</a>
-                 </p>
+                <p class="text-muted">Categoria:
+                    @if ($article->category)
+                        <a href="{{ route('article.byCategory', $article->category) }}" class="text-capitalize text-muted">
+                        {{ $article->category->name }}
+                        </a>
+                    @else
+                        <span>Categoria non esistente</span>
+                    @endif
+</p>
+
             </div>
             <div class="card-footer btn-group d-flex ms-0 justify-content-between align-items-center flex-fill footer_card">
                 <a href="{{route('article.byUser', $article->user)}}" class="btn btn-warning btn-outline-secondary">

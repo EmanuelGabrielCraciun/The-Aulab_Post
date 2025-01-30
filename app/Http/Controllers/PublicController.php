@@ -48,7 +48,7 @@ class PublicController extends Controller
             $info = compact('role', 'email', 'message');
 
             Mail::to('admin@email.it')->send(new MailWorkRequest($info));
-           
+
             switch ($role){
 
                 case 'admin':

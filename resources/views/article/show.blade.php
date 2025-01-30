@@ -17,7 +17,11 @@
             <div class="text-center">
                 <h2>{{$article->subtitle}}</h2>
                 <p class="fs-5">
+                    @if ($article->category)
                     <a href="{{route('article.byCategory', $article->category)}}" class="text-capitalize fw-bold text-muted">{{$article->category->name}}</a>
+                    @else
+                        <span>categoria non esistente</span>
+                    @endif
                 </p>
                 <div class="text-muted my-3">
                     <p>redatto da {{$article->user->name}}
